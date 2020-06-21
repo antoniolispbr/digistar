@@ -1,0 +1,33 @@
+<div class="container">
+    <form #formulario="ngForm" class="py-5">
+        <div class="form-group entrada">
+          <label for="entrada">Dados de Entrada</label>
+          <textarea 
+          [(ngModel)]="resposta"
+          [ngClass]="{'validArea': validaNumero == true}"
+          type="number"            
+          class="form-control" 
+          id="entrada" 
+          placeholder="Input ou cole os dados"
+          rows="10"
+          (keyup) = "atualizaDados($event)"
+          ></textarea>
+          <p *ngIf="validaNumero" class="alert alert-danger"> Entrada Inválida, digite apenas números!</p>
+          <p *ngIf="validarange" class="alert alert-danger"> Número fora do Range!</p>
+        </div>
+
+        <fieldset disabled>
+          <div class="form-group">
+            <label for="saida">Dados de Saida</label>
+            <textarea 
+            type="number"            
+            class="form-control" 
+            id="saida" 
+            placeholder="{{dadosSaida}}"
+            rows="10"
+            ></textarea>
+          </div>
+        </fieldset>
+          
+    </form>
+</div>
